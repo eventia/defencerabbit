@@ -28,21 +28,13 @@ while 1:
             exit(0)
 
 
-
+# Step 1: Hello Bunny
 # Step 2: Add Scenery
-
 # Step 3: Make the Bunny Move
-
 # Step 4: Turning the Bunny
-
 # Step 5: Shoot, Bunny, Shoot!
-
 # Step 6: Take Up Arms! Badgers!
-
 # Step 7: Collisions with Badgers and Arrows
-
 # Step 8: Add a HUD with Health Meter and Clock
-
 # Step 9: Win or Lose
-
 # Step 10: Gratuitous Music and Sound Effects!
