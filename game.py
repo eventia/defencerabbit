@@ -1,4 +1,4 @@
-# Step 2: Add Scenery
+# Step 3: Make the Bunny Move
 # 1 - Import library
 import pygame
 from pygame.locals import *
@@ -7,6 +7,8 @@ from pygame.locals import *
 pygame.init()
 width, height = 640, 480
 screen=pygame.display.set_mode((width, height))
+keys = [False, False, False, False]
+playerpos=[100,100]
 
 # 3 - Load images
 player = pygame.image.load("resources/images/dude.png")
@@ -21,12 +23,12 @@ while 1:
     for x in range(int(width/grass.get_width()+1)):
         for y in range(int(height/grass.get_height()+1)):
             screen.blit(grass,(x*100,y*100))
-            
+
     screen.blit(castle,(0,30))
     screen.blit(castle,(0,135))
     screen.blit(castle,(0,240))
     screen.blit(castle,(0,345 ))
-    screen.blit(player, (100,100))
+    screen.blit(player, playerpos)
     # 7 - update the screen
     pygame.display.flip()
     # 8 - loop through the events
@@ -36,11 +38,39 @@ while 1:
             # if it is quit the game
             pygame.quit()
             exit(0)
+        if event.type == pygame.KEYDOWN:
+            if event.key==K_w:
+                keys[0]=True
+            elif event.key==K_a:
+                keys[1]=True
+            elif event.key==K_s:
+                keys[2]=True
+            elif event.key==K_d:
+                keys[3]=True
+        if event.type == pygame.KEYUP:
+            if event.key==pygame.K_w:
+                keys[0]=False
+            elif event.key==pygame.K_a:
+                keys[1]=False
+            elif event.key==pygame.K_s:
+                keys[2]=False
+            elif event.key==pygame.K_d:
+                keys[3]=False
+
+    # 9 - Move player
+    if keys[0]:
+        playerpos[1]-=5
+    elif keys[2]:
+        playerpos[1]+=5
+    if keys[1]:
+        playerpos[0]-=5
+    elif keys[3]:
+        playerpos[0]+=5
 
 
-# Step 1: Hello Bunny
-# Step 2: Add Scenery
-# Step 3: Make the Bunny Move
+# Step 1: Hello Bunny [V]
+# Step 2: Add Scenery [V]
+# Step 3: Make the Bunny Move [V]
 # Step 4: Turning the Bunny
 # Step 5: Shoot, Bunny, Shoot!
 # Step 6: Take Up Arms! Badgers!
